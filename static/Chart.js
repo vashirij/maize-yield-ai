@@ -1,3 +1,0 @@
-// charts.js
-var ctx = document.getElementById("yieldChart").getContext("2d");
-// Chart.js code here...

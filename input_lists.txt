@@ -1,0 +1,13 @@
+{
+    "districts" : [
+        "Marondera"
+    ],
+
+    "crops" : [
+        "Maize"
+    ],
+
+    "soils" : [
+        "chalky", "clay", "loamy", "sandy", "silty"
+    ]
+}
