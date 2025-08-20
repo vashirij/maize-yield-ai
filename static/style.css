@@ -1,0 +1,62 @@
+body {
+    font-family: 'Segoe UI', 'Roboto', sans-serif;
+    margin: 0;
+    background-color: #f8f9fa;
+}
+
+/* Navigation */
+nav {
+    background: #2c3e50;
+    padding: 1em 2em;
+
+}
+.nav-container a {
+    color: #fff;
+    text-decoration: none;
+    margin-right: 20px;
+    font-weight: bold;
+}
+.nav-container {
+  display: flex;
+  align-items: center;
+}
+.navbar-brand {
+    font-size: 1.5rem;
+}
+
+/* Hero Section */
+.hero {
+    background: linear-gradient(to right, #27ae60, #2ecc71);
+    color: #fff;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 2em;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+}
+
+.hero .btn {
+    background: #fff;
+    color: #27ae60;
+    padding: 1em 2em;
+    border-radius: 5px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.hero .btn:hover {
+    background: #f4f4f4;
+    color: #27ae60;
+}

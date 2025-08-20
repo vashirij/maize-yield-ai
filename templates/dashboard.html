@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <div class="card">
+            <h2>Dashboard - Yield Insights</h2>
+            <canvas id="yieldChart" width="800" height="400"></canvas>
+        </div>
+    </div>
+
+    <script>
+        const dataPoints = {{ combined_vs_yield|tojson }};
+        const labels = dataPoints.map((_, i) => i+1);
+        const nitrogen = dataPoints.map(d => d.nitrogen);
+        const phosphorus = dataPoints.map(d => d.phosphorus);
+        const potassium = dataPoints.map(d => d.potassium);
+        const rainfall = dataPoints.map(d => d.rainfall);
+        const temperature = dataPoints.map(d => d.temperature);
+        const yield_ = dataPoints.map(d => d.yield_);
+
+        const ctx = document.getElementById('yieldChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: labels,
+                datasets: [
+                    { label: 'Soil Nitrogen', data: nitrogen, borderColor: '#e74c3c', fill: false },
+                    { label: 'Soil Phosphorus', data: phosphorus, borderColor: '#3498db', fill: false },
+                    { label: 'Soil Potassium', data: potassium, borderColor: '#f1c40f', fill: false },
+                    { label: 'Rainfall', data: rainfall, borderColor: '#27ae60', fill: false },
+                    { label: 'Temperature', data: temperature, borderColor: '#8e44ad', fill: false },
+                    { label: 'Yield', data: yield_, borderColor: '#2c3e50', fill: false }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: { legend: { position: 'top' } },
+                scales: { y: { beginAtZero: true } }
+            }
+        });
+    </script>
+</body>
+</html>

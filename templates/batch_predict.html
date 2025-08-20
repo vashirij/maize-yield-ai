@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Batch Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    {% include 'nav.html' %}
+    <div class="container">
+        <div class="card">
+            <h2>Batch Maize Yield Prediction</h2>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="file" required>
+                <button type="submit" class="btn btn-success">Upload & Predict</button>
+            </form>
+
+            {% if output_path %}
+                <p>Batch predictions saved: <a href="{{ output_path }}" target="_blank">Download CSV</a></p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
